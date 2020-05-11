@@ -12,6 +12,19 @@ class CommentInput extends Component {
       content: "",
     };
   }
+  componentWillMount() {
+    this._loadUsername();
+  }
+  _saveUsername(username) {
+    localStorage.setItem("username", username);
+  }
+
+  _loadUsername() {
+    const username = localStorage.getItem("username");
+    if (username) {
+      this.setState({ username });
+    }
+  }
   handleUsernameChange(e) {
     this.setState({
       username: e.target.value,
@@ -22,20 +35,8 @@ class CommentInput extends Component {
       content: e.target.value,
     });
   }
-  _saveUsername(username) {
-    localStorage.setItem("username", username);
-  }
   handleUsernameBlur(e) {
     this._saveUsername(e.target.value);
-  }
-  _loadUsername() {
-    const username = localStorage.getItem("username");
-    if (username) {
-      this.setState({ username });
-    }
-  }
-  componentWillMount() {
-    this._loadUsername();
   }
   handleSubmit() {
     if (this.props.onSubmit) {
