@@ -3,6 +3,8 @@ import PropTypes from "prop-types";
 class Comment extends Component {
   static propTypes = {
     comment: PropTypes.object.isRequired,
+    onDeleteComment: PropTypes.func,
+    index: PropTypes.number, // 元素下标
   };
   constructor() {
     super();
@@ -27,14 +29,27 @@ class Comment extends Component {
           : `${Math.round(Math.max(duration, 1))}秒前`,
     });
   }
+  handleDeleteComment() {
+    if (this.props.onDeleteComment) {
+      this.props.onDeleteComment(this.props.index);
+    }
+  }
   render() {
     return (
       <div className="comment">
         <div className="comment-user">
-          <span>{this.props.comment.username}</span>
+          <span className="comment-username">
+            {this.props.comment.username}
+          </span>
         </div>
         <p>{this.props.comment.content}</p>
-        <span className="comment-createdTime">{this.state.timeString}</span>
+        <span className="comment-createdtime">{this.state.timeString}</span>
+        <span
+          onClick={this.handleDeleteComment.bind(this)}
+          class="comment-delete"
+        >
+          删除
+        </span>
       </div>
     );
   }

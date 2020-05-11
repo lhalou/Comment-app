@@ -100,10 +100,10 @@ body {
 }
 
 .comment-createdtime {
-  padding-right: 5px;
   position: absolute;
   bottom: 0;
   right: 0;
+  padding-right: 5px;
   padding: 5px;
   font-size: 12px;
 }
@@ -123,6 +123,7 @@ body {
 
 .comment p {
   margin: 0;
+
   /*text-indent: 2em;*/
 }
 
