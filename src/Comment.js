@@ -12,6 +12,7 @@ class Comment extends Component {
   }
   componentWillMount() {
     this._updateTimeString();
+    this.timer = setInterval(this._updateTimeString.bind(this), 5000);
   }
   _updateTimeString() {
     const comment = this.props.comment;
