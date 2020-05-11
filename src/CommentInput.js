@@ -22,6 +22,21 @@ class CommentInput extends Component {
       content: e.target.value,
     });
   }
+  _saveUsername(username) {
+    localStorage.setItem("username", username);
+  }
+  handleUsernameBlur(e) {
+    this._saveUsername(e.target.value);
+  }
+  _loadUsername() {
+    const username = localStorage.getItem("username");
+    if (username) {
+      this.setState({ username });
+    }
+  }
+  componentWillMount() {
+    this._loadUsername();
+  }
   handleSubmit() {
     if (this.props.onSubmit) {
       const { username, content } = this.state;
@@ -29,6 +44,7 @@ class CommentInput extends Component {
     }
     this.setState({ content: "" });
   }
+
   componentDidMount() {
     this.textarea.focus();
   }
@@ -40,6 +56,7 @@ class CommentInput extends Component {
           <div className="comment-field-input">
             <input
               value={this.state.username}
+              onBlur={this.handleUsernameBlur.bind(this)}
               onChange={this.handleUsernameChange.bind(this)}
             />
           </div>
