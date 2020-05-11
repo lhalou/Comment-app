@@ -29,6 +29,7 @@ class Comment extends Component {
           : `${Math.round(Math.max(duration, 1))}秒前`,
     });
   }
+  //主要防止XSS攻击
   _getProcessedContent(content) {
     return content
       .replace(/&/g, "&amp;")

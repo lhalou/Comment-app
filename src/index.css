@@ -92,6 +92,7 @@ body {
 
 .comment .comment-user {
   flex-shrink: 0;
+  padding-right: 15px;
 }
 
 .comment-username {
