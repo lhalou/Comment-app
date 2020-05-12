@@ -1,5 +1,7 @@
 # React,js实现评论功能
 
+[预览页面](https://lhalou.github.io/comment-app/build/#)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
