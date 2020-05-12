@@ -36,6 +36,7 @@ class CommentInput extends Component {
     });
   }
   handleUsernameBlur(e) {
+    //e.target.value 为输入的信息
     this._saveUsername(e.target.value);
   }
   handleSubmit() {
